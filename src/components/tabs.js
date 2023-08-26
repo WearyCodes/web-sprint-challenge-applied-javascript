@@ -1,4 +1,18 @@
+
+
+
 const Tabs = (topics) => {
+const topicsDiv = document.createElement('div')
+topicsDiv.classList.add('topics')
+  topics.forEach(topic => {
+    const tab = document.createElement('div')
+    tab.textContent = topic
+    topicsDiv.appendChild(tab)
+    tab.classList.add('tab')
+    return topicsDiv
+  })
+
+
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -14,8 +28,31 @@ const Tabs = (topics) => {
   // </div>
   //
 }
+let wearyData;
+let stuff
 
+setTimeout(() => {
+  if (wearyData){Tabs(wearyData.data.topics)}
+  else {console.log('not yet')}
+
+}, 500)
+  
 const tabsAppender = (selector) => {
+axios.get('http://localhost:5001/api/topics').then(res => (wearyData = res)).catch(err => console.log('error', err))
+setTimeout(() => {
+  if (wearyData){
+    console.log(wearyData.data.topics)
+    const Add = document.querySelector(selector)
+    const stuffs = Tabs(wearyData.data.topics)
+    Add.appendChild(stuffs)
+
+   }
+  else {console.log('cant find it')}
+}, 1000);
+
+
+
+
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
