@@ -2,55 +2,54 @@
 
 
 const Tabs = (topics) => {
-const topicsDiv = document.createElement('div')
-topicsDiv.classList.add('topics')
+  const topicsDiv = document.createElement('div')
+  topicsDiv.classList.add('topics')
   topics.forEach(topic => {
     const tab = document.createElement('div')
     tab.textContent = topic
     topicsDiv.appendChild(tab)
     tab.classList.add('tab')
-    return topicsDiv
   })
-
-
-  // TASK 3
-  // ---------------------
-  // Implement this function which takes an array of strings ("topics") as its only argument.
-  // As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
-  // then the function returns the markup below.
-  // The tags used, the hierarchy of elements and their attributes must match the provided markup!
-  // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  //
-  // <div class="topics">
-  //   <div class="tab">javascript</div>
-  //   <div class="tab">bootstrap</div>
-  //   <div class="tab">technology</div>
-  // </div>
-  //
+  console.log(topicsDiv)
+  return topicsDiv
 }
+
+
+// TASK 3
+// ---------------------
+// Implement this function which takes an array of strings ("topics") as its only argument.
+// As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
+// then the function returns the markup below.
+// The tags used, the hierarchy of elements and their attributes must match the provided markup!
+// The text inside elements will be set using their `textContent` property (NOT `innerText`).
+//
+// <div class="topics">
+//   <div class="tab">javascript</div>
+//   <div class="tab">bootstrap</div>
+//   <div class="tab">technology</div>
+// </div>
+//
+
 let wearyData;
-let stuff
-
-setTimeout(() => {
-  if (wearyData){Tabs(wearyData.data.topics)}
-  else {console.log('not yet')}
-
-}, 500)
-  
-const tabsAppender = (selector) => {
+let stuff = []
 axios.get('http://localhost:5001/api/topics').then(res => (wearyData = res)).catch(err => console.log('error', err))
 setTimeout(() => {
-  if (wearyData){
-    console.log(wearyData.data.topics)
-    const Add = document.querySelector(selector)
-    const stuffs = Tabs(wearyData.data.topics)
-    Add.appendChild(stuffs)
-
-   }
-  else {console.log('cant find it')}
+  if (wearyData) {
+    wearyData.data.topics.forEach(topic => {
+      stuff.push(topic)
+    })
+  } else { console.log('cant find it') }
 }, 1000);
+// setTimeout(() => {
+//   console.log(wearyData)
+// }, 1500);
 
 
+const tabsAppender = (selector) => {
+let thing = document.querySelector(selector)
+setTimeout(() => {
+  thing.appendChild(Tabs(stuff))
+}, 1000);
 
 
   // TASK 4
