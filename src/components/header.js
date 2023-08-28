@@ -32,7 +32,7 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   let spot = document.querySelector(selector)
-  spot.appendChild(Header('Sammy', 'August 26, 2023', '110 degrees'))
+  spot.appendChild(Header('Header', 'August 26, 2023', '110 degrees'))
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
