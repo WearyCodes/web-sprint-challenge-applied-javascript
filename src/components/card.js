@@ -1,3 +1,6 @@
+
+
+
 const Card = (article) => {
 const articleCard = document.createElement('div')
 const articleHeadline = document.createElement('div')
@@ -12,14 +15,15 @@ articleAuthor.appendChild(articleImageContainer)
 articleImageContainer.appendChild(articlePhoto)
 articleImageContainer.appendChild(articleAuthorName)
 
-articleCard.addClass('card')
-articleHeadline.addClass('headline')
-articleAuthor.addClass('author')
-articleImageContainer.addClass('img-container')
+articleCard.classList.add('card')
+articleHeadline.classList.add('headline')
+articleAuthor.classList.add('author')
+articleImageContainer.classList.add('img-container')
 
 articleHeadline.textContent = article.headline
 articlePhoto.src = article.authorPhoto
-articleAuthorName.textContent = artiocle.authorName
+articleAuthorName.textContent = article.authorName
+
 
 
 
@@ -48,18 +52,15 @@ let articlestuff = []
   axios.get('http://localhost:5001/api/articles').then(res => {
 articlestuff.push(res.data.articles)}
   ).catch(err => 'error')
-  console.log(articlestuff)
-
+    let cards = []
 const cardAppender = (selector) => {
   let spot = document.querySelector(selector)
-articlestuff.forEach(category => {
-  category.forEach(article => {
-    let cards = []
-    cards.push(Card(article))
-return cards
-  })
-
-})
+// articlestuff.forEach(category => {
+//   category.forEach(article => {
+//     cards.push(Card(article))
+//   })
+// console.log(cards)
+// })
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -68,9 +69,15 @@ return cards
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  cards.forEach(card => {
-      spot.appendChild(card)
-  })
+  let cardstuff = []
+setTimeout(() => {
+  if (articlestuff){
+    articlestuff.forEach(article => {
+spot.appendChild(Card(article.javascript[0]))
+    })
+  }
+}, 1000);
+
 
 }
 
