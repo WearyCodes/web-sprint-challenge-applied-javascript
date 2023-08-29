@@ -73,7 +73,22 @@ const cardAppender = (selector) => {
 setTimeout(() => {
   if (articlestuff){
     articlestuff.forEach(article => {
+      console.log(article)
 spot.appendChild(Card(article.javascript[0]))
+spot.appendChild(Card(article.javascript[1]))
+spot.appendChild(Card(article.javascript[2]))
+spot.appendChild(Card(article.javascript[3]))
+spot.appendChild(Card(article.bootstrap[0]))
+spot.appendChild(Card(article.bootstrap[1]))
+spot.appendChild(Card(article.bootstrap[2]))
+spot.appendChild(Card(article.technology[0]))
+spot.appendChild(Card(article.technology[1]))
+spot.appendChild(Card(article.technology[2]))
+spot.appendChild(Card(article.jquery[0]))
+spot.appendChild(Card(article.jquery[1]))
+spot.appendChild(Card(article.jquery[2]))
+spot.appendChild(Card(article.node[0]))
+spot.appendChild(Card(article.node[1]))
     })
   }
 }, 1000);
