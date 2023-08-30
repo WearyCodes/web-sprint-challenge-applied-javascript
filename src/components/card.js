@@ -55,7 +55,7 @@ const cardAppender = (selector) => {
    axios.get('http://localhost:5001/api/articles').then(res => {
       let spot = document.querySelector(selector)
 articlestuff.push(res.data.articles)
-if (articlestuff){
+
     articlestuff.forEach(article => {
       console.log(article)
 spot.appendChild(Card(article.javascript[0]))
@@ -74,7 +74,7 @@ spot.appendChild(Card(article.jquery[2]))
 spot.appendChild(Card(article.node[0]))
 spot.appendChild(Card(article.node[1]))
     })
-  }
+  
 }
   ).catch(err => 'error')
 
