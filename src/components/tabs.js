@@ -30,26 +30,28 @@ const Tabs = (topics) => {
 // </div>
 //
 
-let wearyData;
+
 let stuff = []
-axios.get('http://localhost:5001/api/topics').then(res => (wearyData = res)).catch(err => console.log('error', err))
-setTimeout(() => {
-  if (wearyData) {
-    wearyData.data.topics.forEach(topic => {
-      stuff.push(topic)
-    })
-  } else { console.log('cant find it') }
-}, 1000);
+
+
 // setTimeout(() => {
 //   console.log(wearyData)
 // }, 1500);
 
 
 const tabsAppender = (selector) => {
+  axios.get('http://localhost:5001/api/topics').then(res => 
+{const wearyData = res
+    wearyData.data.topics.forEach(topic => {
+      stuff.push(topic)
+    
+})  
 let thing = document.querySelector(selector)
-setTimeout(() => {
   thing.appendChild(Tabs(stuff))
-}, 1000);
+})
+.catch(err => console.log('error', err))
+
+
 
 
   // TASK 4

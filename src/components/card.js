@@ -49,29 +49,12 @@ articleAuthorName.textContent = article.authorName
 }
 let articlestuff = []
 
-  axios.get('http://localhost:5001/api/articles').then(res => {
-articlestuff.push(res.data.articles)}
-  ).catch(err => 'error')
+ 
     let cards = []
 const cardAppender = (selector) => {
-  let spot = document.querySelector(selector)
-// articlestuff.forEach(category => {
-//   category.forEach(article => {
-//     cards.push(Card(article))
-//   })
-// console.log(cards)
-// })
-  // TASK 6
-  // ---------------------
-  // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `http://localhost:5001/api/articles` (test it with console.log!!).
-  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
-  // Create a card from each and every article object in the response, using the Card component.
-  // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
-  let cardstuff = []
-setTimeout(() => {
-  if (articlestuff){
+   axios.get('http://localhost:5001/api/articles').then(res => {
+articlestuff.push(res.data.articles)
+if (articlestuff){
     articlestuff.forEach(article => {
       console.log(article)
 spot.appendChild(Card(article.javascript[0]))
@@ -91,7 +74,27 @@ spot.appendChild(Card(article.node[0]))
 spot.appendChild(Card(article.node[1]))
     })
   }
-}, 1000);
+}
+  ).catch(err => 'error')
+  let spot = document.querySelector(selector)
+// articlestuff.forEach(category => {
+//   category.forEach(article => {
+//     cards.push(Card(article))
+//   })
+// console.log(cards)
+// })
+  // TASK 6
+  // ---------------------
+  // Implement this function that takes a css selector as its only argument.
+  // It should obtain articles from this endpoint: `http://localhost:5001/api/articles` (test it with console.log!!).
+  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
+  // Create a card from each and every article object in the response, using the Card component.
+  // Append each card to the element in the DOM that matches the selector passed to the function.
+  //
+  let cardstuff = []
+
+  
+
 
 
 }
