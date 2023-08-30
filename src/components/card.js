@@ -23,7 +23,7 @@ articleImageContainer.classList.add('img-container')
 articleHeadline.textContent = article.headline
 articlePhoto.src = article.authorPhoto
 articleAuthorName.textContent = article.authorName
-
+articleCard.addEventListener('click', ()=>{console.log(articleHeadline)})
 
 
 
