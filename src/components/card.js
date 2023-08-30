@@ -11,9 +11,11 @@ const articleAuthorName = document.createElement('span')
 
 articleCard.appendChild(articleHeadline)
 articleCard.appendChild(articleAuthor)
+
 articleAuthor.appendChild(articleImageContainer)
+articleAuthor.appendChild(articleAuthorName)
 articleImageContainer.appendChild(articlePhoto)
-articleImageContainer.appendChild(articleAuthorName)
+
 
 articleCard.classList.add('card')
 articleHeadline.classList.add('headline')
