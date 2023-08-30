@@ -53,6 +53,7 @@ let articlestuff = []
     let cards = []
 const cardAppender = (selector) => {
    axios.get('http://localhost:5001/api/articles').then(res => {
+      let spot = document.querySelector(selector)
 articlestuff.push(res.data.articles)
 if (articlestuff){
     articlestuff.forEach(article => {
@@ -76,7 +77,7 @@ spot.appendChild(Card(article.node[1]))
   }
 }
   ).catch(err => 'error')
-  let spot = document.querySelector(selector)
+
 // articlestuff.forEach(category => {
 //   category.forEach(article => {
 //     cards.push(Card(article))
@@ -91,7 +92,7 @@ spot.appendChild(Card(article.node[1]))
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  let cardstuff = []
+
 
   
 
